@@ -84,7 +84,7 @@
 <?php endforeach; ?>
     );
   }
-<? die(echo "hola andres"); ?>
+  
 <?php foreach (array('list', 'filter', 'form', 'edit', 'new', 'show') as $context): ?>
   public function getFields<?php echo ucfirst($context) ?>()
   {
