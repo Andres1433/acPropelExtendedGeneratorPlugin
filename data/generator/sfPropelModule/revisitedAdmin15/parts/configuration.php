@@ -58,4 +58,31 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
     return <?php echo $this->asPhp(isset($this->config['list']['query_methods']) ? $this->config['list']['query_methods'] : array()) ?>;
 <?php unset($this->config['list']['query_methods']) ?>
   }
+
+  public function getCondition($action)
+  {
+    $condition = null;
+    // first check standard main actions ("_create" for example)
+    if (isset($this->configuration['list']['actions']['_'.$action]['condition']))
+    {
+      $condition = $this->configuration['list']['actions']['_'.$action]['condition'];
+    }
+    // then check non standard main actions
+    if (isset($this->configuration['list']['actions'][$action]['condition']))
+    {
+      $condition = $this->configuration['list']['actions'][$action]['condition'];
+    }
+    // then check standard object actions (started with "_", "_edit" for example)
+    if (isset($this->configuration['list']['object_actions']['_'.$action]['condition']))
+    {
+      $condition = $this->configuration['list']['object_actions']['_'.$action]['condition'];
+    }
+    // finally check non standard object actions
+    if (isset($this->configuration['list']['object_actions'][$action]['condition']))
+    {
+      $condition = $this->configuration['list']['object_actions'][$action]['condition'];
+    }
+
+    return $condition;
+  }
 }
