@@ -1,42 +1,6 @@
-#sf_admin_container a
-{
-  color: #464646;
-  text-decoration: none;
-}
-
-#sf_admin_container a:hover
-{
-  color: #000;
-  text-decoration: underline;
-}
-
-#sf_admin_container h1
-{
-  margin: 0;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
 #sf_admin_container th
 {
-  background-color: #e7eef6;
   white-space: nowrap;
-}
-
-#sf_admin_container td, #sf_admin_container th
-{
-  border: 0;
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  text-align: left;
-  vertical-align: top;
-}
-
-#sf_admin_container tr
-{
-  background-color: #fff;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
 }
 
 #sf_admin_container ul.error_list
@@ -57,14 +21,9 @@
   background: url(../images/error.png) no-repeat 4px 4px;
 }
 
-#sf_admin_container tr:hover
+#sf_admin_container tbody tr:hover
 {
-  background-color: #ffe;
-}
-
-#sf_admin_container input, #sf_admin_container textarea
-{
-  width: auto;
+  background-color: #f2f2f2;
 }
 
 #sf_admin_container .radio_list, #sf_admin_container .checkbox_list
@@ -90,7 +49,6 @@
 
 #sf_admin_container tfoot td
 {
-  margin: 0;
   list-style: none;
   text-align: right;
 }
@@ -98,12 +56,6 @@
 #sf_admin_container thead img, #sf_admin_container tfoot img
 {
   vertical-align: middle;
-}
-
-#sf_admin_bar
-{
-  float: right;
-  margin-left: 20px;
 }
 
 .sf_admin_pagination
@@ -121,7 +73,7 @@
 #sf_admin_container ul.sf_admin_td_actions li
 {
   list-style-type: none;
-  display: inline;
+  display: block;
   margin-right: 10px;
   font-size: 90%;
 }
@@ -178,69 +130,11 @@
   padding-left: 20px;
 }
 
-#sf_admin_container .notice
-{
-  margin: 4px 0;
-  padding: 4px 4px 4px 30px;
-  background: url(../images/tick.png) no-repeat 10px 4px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: #ffc;
-}
-
-#sf_admin_container .error
-{
-  margin: 4px 0;
-  padding: 4px 4px 4px 30px;
-  background: url(../images/error.png) no-repeat 10px 4px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: #f33;
-  color: #fff;
-}
-
-#sf_admin_container .sf_admin_row_0 td
-{
-}
-
-#sf_admin_container .sf_admin_row_1 td
-{
-/*  background-color: #eee;*/
-}
-
-#sf_admin_container fieldset h2
-{
-  padding: 3px;
-  color: #333;
-  background-color: #ccf;
-  font-size: 11px;
-  margin: 0;
-}
-
-#sf_admin_container fieldset
-{
-  margin-bottom: 3px;
-  border: 1px solid #ddd;
-  border-bottom: 0px;
-  background-color: #fff;
-}
-
 #sf_admin_container fieldset.collapsed * { display:none; }
-#sf_admin_container fieldset.collapsed h2, #sf_admin_container fieldset.collapsed { display:block !important; }
+#sf_admin_container fieldset.collapsed legend, #sf_admin_container fieldset.collapsed { display:block !important; }
 #sf_admin_container fieldset.collapsed .collapse-toggle { display: inline !important; }
-#sf_admin_container fieldset.collapse h2 a.collapse-toggle { color:#ffc; }
-#sf_admin_container fieldset.collapse h2 a.collapse-toggle:hover { text-decoration:underline; }
-
-#sf_admin_container label
-{
-  display: block;
-  padding: 0 1em 3px 0;
-  float: left;
-  text-align: left;
-  width: 8em;
-  color: #666;
-  font-weight: normal !important;
-}
+#sf_admin_container fieldset.collapse legend a.collapse-toggle { color:#ffc; }
+#sf_admin_container fieldset.collapse legend a.collapse-toggle:hover { text-decoration:underline; }
 
 #sf_admin_container ul label, #sf_admin_container td label
 {
@@ -248,27 +142,9 @@
   float: none !important;
 }
 
-#sf_admin_container .sf_admin_form_row
-{
-  clear: both;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-#sf_admin_container .sf_admin_form_row .content
-{
-  padding-left: 9em;
-}
-
 #sf_admin_container .help
 {
-  padding-left: 9em;
   color: #aaa;
-}
-
-#sf_admin_container td .help
-{
-  padding-left: 0;
 }
 
 #sf_admin_container .errors input, #sf_admin_container .errors select
@@ -281,3 +157,17 @@
   text-align: center;
 }
 
+/** Gumby customization **/
+
+#sf_admin_container table thead tr th, #sf_admin_container table thead tr th a { color: #fff; }
+#sf_admin_container table tfoot tr th { display: table-cell; padding: 10px; vertical-align: top; text-align: left; border-top: 1px solid #e5e5e5; }
+#sf_admin_container table tfoot tr th { font-size: 16px; vertical-align: bottom; }
+#sf_admin_container table tr td:first-child { font-weight: normal; }
+
+
+/** Fields **/
+#sf_admin_container form input[type="text"] {}
+
+#sf_admin_container form input[type="text"] { position: relative; padding: 0 10px; background: #fff; border: 1px solid #d8d8d8; height: 36px; line-height: 34px; font-size: 16px; font-size: 1rem; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
+#sf_admin_container form input[type="search"] { height: 36px; line-height: 34px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; padding-right: 0; }
+#sf_admin_container form textarea { height: auto; }
