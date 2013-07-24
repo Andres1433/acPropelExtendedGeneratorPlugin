@@ -171,3 +171,4 @@
 #sf_admin_container form input[type="text"] { position: relative; padding: 0 10px; background: #fff; border: 1px solid #d8d8d8; height: 36px; line-height: 34px; font-size: 16px; font-size: 1rem; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
 #sf_admin_container form input[type="search"] { height: 36px; line-height: 34px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; padding-right: 0; }
 #sf_admin_container form textarea { height: auto; }
+#sf_admin_container .sf_admin_filter form input[type="text"], #sf_admin_container .sf_admin_filter form select { width: 95%; }

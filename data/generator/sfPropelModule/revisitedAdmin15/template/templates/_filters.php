@@ -12,8 +12,12 @@
         <tr>
           <td colspan="2">
             [?php echo $form->renderHiddenFields() ?]
-            [?php echo link_to(__('Reset', array(), 'sf_admin'), '<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post')) ?]
-            <input type="submit" value="[?php echo __('Filter', array(), 'sf_admin') ?]" />
+            <div class="btn medium default">
+              [?php echo link_to(__('Reset', array(), 'sf_admin'), '<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post')) ?]
+            </div>
+            <div class="btn medium primary">
+              <button type="submit">[?php echo __('Filter', array(), 'sf_admin') ?]</button>
+            </div>
           </td>
         </tr>
       </tfoot>
