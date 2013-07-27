@@ -178,6 +178,21 @@
   content: "\2b07";
 }
 
+#sf_admin_container ul.sf_admin_actions
+{
+  text-align: right;
+}
+
+#sf_admin_container ul.sf_admin_actions li:last-child
+{
+  margin-right: 0;
+}
+
+#sf_admin_container ul.sf_admin_actions li.sf_admin_action_list.btn
+{
+  float: left;
+}
+
 #sf_admin_container ul li.disabled span
 {
   opacity: 0.40;
