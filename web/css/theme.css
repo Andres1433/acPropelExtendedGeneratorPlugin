@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
 #sf_admin_container th
 {
   white-space: nowrap;
@@ -87,45 +90,96 @@
 #sf_admin_container ul.sf_admin_actions li
 {
   list-style-type: none;
-  display: inline;
+  display: inline-block;
   margin-right: 10px;
 }
 
-#sf_admin_container ul li a
+#sf_admin_container ul li
 {
-  padding-left: 20px;
-  background: url(../images/default.png) no-repeat 0 0;
+  position: relative;
 }
 
-#sf_admin_container ul li.sf_admin_action_new a
+#sf_admin_container ul.sf_admin_td_actions li a
 {
-  background: url(../images/new.png) no-repeat 0 0;
+  display: block;
+  color: #555;
+  padding-left: 23px;
+  line-height: 1.6;
 }
 
-#sf_admin_container ul li.sf_admin_action_delete a
+#sf_admin_container ul.sf_admin_actions li a:before,
+#sf_admin_container ul.sf_admin_td_actions li a:before
 {
-  background: url(../images/delete.png) no-repeat 0 0;
+  font-family: "entypo";
+  position: absolute;
+  text-decoration: none;
+  zoom: 1;
+  left: 7px;
+}
+
+#sf_admin_container ul.sf_admin_actions li a
+{
+  font-weight: normal;
+  display: block;
+  padding-left: 43px;
+}
+
+#sf_admin_container ul.sf_admin_actions li a:before
+{
+  left: 17px;
+}
+
+#sf_admin_container ul li.sf_admin_action_new a:before
+{
+  content: "\2795";
 }
 
 #sf_admin_container ul li.sf_admin_action_list a
 {
-  background: url(../images/list.png) no-repeat 0 0;
+  content: "\27a1";
 }
 
-#sf_admin_container ul li.sf_admin_action_edit a
+#sf_admin_container ul li.sf_admin_action_delete a:before,
+#sf_admin_container ul li.sf_admin_action_deactivate a:before
 {
-  background: url(../images/edit.png) no-repeat 0 0;
+  content: "\2716";
 }
 
-#sf_admin_container ul li.sf_admin_action_moveup a, #sf_admin_container ul li.sf_admin_action_moveup span {
-  background: url(../images/arrow_up.png) no-repeat 0 0;
+#sf_admin_container ul li.sf_admin_action_edit a:before
+{
+  content: "\270e";
 }
 
-#sf_admin_container ul li.sf_admin_action_movedown a, #sf_admin_container ul li.sf_admin_action_movedown span {
-  background: url(../images/arrow_down.png) no-repeat 0 0;
+#sf_admin_container ul li.sf_admin_action_show a:before
+{
+  content: "\e705";
 }
 
-#sf_admin_container ul li.disabled span {
+#sf_admin_container ul li.sf_admin_action_ok a:before,
+#sf_admin_container ul li.sf_admin_action_activate a:before
+{
+  content: "\2713";
+}
+
+#sf_admin_container ul li.sf_admin_action_cancel a:before
+{
+  content: "\2715";
+}
+
+#sf_admin_container ul li.sf_admin_action_moveup a:before,
+#sf_admin_container ul li.sf_admin_action_moveup span:before
+{
+  content: "\2b06";
+}
+
+#sf_admin_container ul li.sf_admin_action_movedown a:before,
+#sf_admin_container ul li.sf_admin_action_movedown span:before
+{
+  content: "\2b07";
+}
+
+#sf_admin_container ul li.disabled span
+{
   opacity: 0.40;
   padding-left: 20px;
 }
@@ -136,7 +190,8 @@
 #sf_admin_container fieldset.collapse legend a.collapse-toggle { color:#ffc; }
 #sf_admin_container fieldset.collapse legend a.collapse-toggle:hover { text-decoration:underline; }
 
-#sf_admin_container ul label, #sf_admin_container td label
+#sf_admin_container ul label,
+#sf_admin_container td label
 {
   display: inline;
   float: none !important;
@@ -157,7 +212,51 @@
   text-align: center;
 }
 
+#sf_admin_container .sf_admin_checked_mark
+{
+  display: inline-block;
+  font-family: "entypo";
+  font-size: 18px;
+  color: #58c026;
+}
+
+#sf_admin_container .sf_admin_sort_asc,
+#sf_admin_container .sf_admin_sort_desc
+{
+  display: inline-block;
+  font-family: "entypo";
+}
+
+#sf_admin_container .sf_admin_sort_asc:before
+{
+  content: "\e4af";
+}
+
+#sf_admin_container .sf_admin_sort_desc:before
+{
+  content: "\e4b0";
+}
+
+#sf_admin_container .sf_admin_pagination .sf_admin_current_page
+{
+  font-weight: bold;
+}
+
+#sf_admin_container .sf_admin_pagination a
+{
+  color: #555;
+  display: inline-block;
+}
+
+#sf_admin_container .sf_admin_pagination .sf_admin_page
+{
+  font-family: "entypo";
+  display: block;
+}
+
+
 /** Gumby customization **/
+#sf_admin_container h1 { font-size: 44px; font-size: 2.75rem; }
 
 #sf_admin_container table thead tr th, #sf_admin_container table thead tr th a { color: #fff; }
 #sf_admin_container table tfoot tr th { display: table-cell; padding: 10px; vertical-align: top; text-align: left; border-top: 1px solid #e5e5e5; }
