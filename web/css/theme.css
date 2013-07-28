@@ -271,8 +271,7 @@
 
 
 /** Gumby customization **/
-#sf_admin_container h1 { font-size: 44px; font-size: 2.75rem; padding: 0; }
-
+#sf_admin_container h1 { font-size: 44px; font-size: 2.75rem; padding-top: 0; }
 #sf_admin_container table thead tr th, #sf_admin_container table thead tr th a { color: #fff; }
 #sf_admin_container table tfoot tr th { display: table-cell; padding: 10px; vertical-align: top; text-align: left; border-top: 1px solid #e5e5e5; }
 #sf_admin_container table tfoot tr th { font-size: 16px; vertical-align: bottom; }
@@ -281,9 +280,11 @@
 
 /** Fields **/
 #sf_admin_container form select { min-width: 350px; }
-
 #sf_admin_container form input[type="text"] { position: relative; padding: 0 10px; background: #fff; border: 1px solid #d8d8d8; height: 36px; line-height: 34px; font-size: 16px; font-size: 1rem; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
 #sf_admin_container form input[type="search"] { height: 36px; line-height: 34px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; padding-right: 0; }
 #sf_admin_container form .field input[type="*"], #sf_admin_container form .field textarea { position: relative; padding: 0 10px; background: #fff; border: 1px solid #d8d8d8; height: 36px; line-height: 34px; font-size: 16px; font-size: 1rem; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; }
 #sf_admin_container form .field textarea { height: inherit; }
 #sf_admin_container .sf_admin_filter form input[type="text"], #sf_admin_container .sf_admin_filter form select { width: 95%; }
+
+/** Show **/
+#sf_admin_container .sf_admin_show_form {  }
