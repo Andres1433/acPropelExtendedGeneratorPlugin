@@ -1,5 +1,5 @@
 [?php if ($value): ?]
-  [?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/tick.png', array('alt' => __('Checked', array(), 'sf_admin'), 'title' => __('Checked', array(), 'sf_admin'))) ?]
+  <span class="sf_admin_checked_mark">&#x2713;</span>
 [?php else: ?]
   &nbsp;
 [?php endif; ?]
