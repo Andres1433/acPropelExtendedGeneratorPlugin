@@ -1,4 +1,4 @@
-<a name="[?php echo preg_replace('/[^a-z0-9_]/', '_', strtolower($fieldset)) ?]"></a>
+<a name="[?php echo preg_replace('/[^a-z0-9_]/', '_', strtolower($fieldset)) ?]" tabindex="-1"></a>
 <fieldset id="sf_fieldset_[?php echo preg_replace('/[^a-z0-9_]/', '_', strtolower($fieldset)) ?]">
   [?php if ('NONE' != $fieldset): ?]
     <legend>[?php echo __($fieldset, array(), '<?php echo $this->getI18nCatalogue() ?>') ?]</legend>
