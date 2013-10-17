@@ -13,7 +13,7 @@
       'help'       => $field->getConfig('help'),
       'form'       => $form,
       'field'      => $field,
-      'class'      => 'field sf_admin_field_'.strtolower($field->getType()).' sf_admin_form_field_'.$name,
+      'class'      => 'row field sf_admin_field_'.strtolower($field->getType()).' sf_admin_form_field_'.$name,
     )) ?]
   [?php endforeach; ?]
 </fieldset>
