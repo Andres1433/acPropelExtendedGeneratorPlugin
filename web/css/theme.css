@@ -81,20 +81,20 @@
   font-size: 90%;
 }
 
-#sf_admin_container ul.sf_admin_actions
+#sf_admin_container ul.sf_admin_actions, #sf_admin_content ul.sf_admin_header_actions
 {
   margin: 10px 0;
   list-style-type: none;
 }
 
-#sf_admin_container ul.sf_admin_actions li
+#sf_admin_container ul.sf_admin_actions li, #sf_admin_content ul.sf_admin_header_actions li
 {
   list-style-type: none;
   display: inline-block;
   margin-right: 10px;
 }
 
-#sf_admin_container ul li
+#sf_admin_container ul li, #sf_admin_content ul.sf_admin_header_actions li
 {
   position: relative;
 }
@@ -108,7 +108,8 @@
 }
 
 #sf_admin_container ul.sf_admin_actions li a:before,
-#sf_admin_container ul.sf_admin_td_actions li a:before
+#sf_admin_container ul.sf_admin_td_actions li a:before,
+#sf_admin_content   ul.sf_admin_header_actions li a:before
 {
   font-family: "entypo";
   position: absolute;
@@ -117,19 +118,19 @@
   left: 7px;
 }
 
-#sf_admin_container ul.sf_admin_actions li a
+#sf_admin_container ul.sf_admin_actions li a, #sf_admin_content ul li.sf_admin_action_new a
 {
   font-weight: normal;
   display: block;
   padding-left: 43px;
 }
 
-#sf_admin_container ul.sf_admin_actions li a:before
+#sf_admin_container ul.sf_admin_actions li a:before, #sf_admin_content ul li.sf_admin_action_new a:before
 {
   left: 17px;
 }
 
-#sf_admin_container ul li.sf_admin_action_new a:before
+#sf_admin_container ul li.sf_admin_action_new a:before, #sf_admin_content ul li.sf_admin_action_new a:before
 {
   content: "\2795";
 }
@@ -178,7 +179,7 @@
   content: "\2b07";
 }
 
-#sf_admin_container ul.sf_admin_actions
+#sf_admin_container ul.sf_admin_actions, #sf_admin_content ul.sf_admin_header_actions
 {
   text-align: right;
 }

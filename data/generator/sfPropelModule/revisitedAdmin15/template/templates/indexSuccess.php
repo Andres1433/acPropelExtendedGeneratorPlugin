@@ -17,6 +17,19 @@
 <?php endif; ?>
 
   <div id="sf_admin_content">
+
+  <ul class="sf_admin_header_actions">
+  <?php if ($actions = $this->configuration->getValue('list.actions')): ?>
+  <?php if (isset($actions['_new']['condition'])): ?>
+  [?php if (sfContext::getInstance()->getUser()-><?php echo $actions['_new']['condition'] ?>()): ?]
+  <?php endif; ?>
+  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToNew('.$this->asPhp($actions['_new']).') ?]', $actions['_new']) ?>
+  <?php if (isset($actions['_new']['condition'])): ?>
+  [?php endif; ?]
+  <?php endif; ?>
+  <?php endif; ?>
+  </ul>
+  
 <?php if ($this->configuration->getValue('list.batch_actions')): ?>
     <form action="[?php echo url_for('<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'batch')) ?]" method="post">
 <?php endif; ?>
