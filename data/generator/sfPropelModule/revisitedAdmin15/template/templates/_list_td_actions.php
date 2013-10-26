@@ -21,8 +21,8 @@
     <?php echo $this->addCredentialCondition('[?php echo $helper->linkToMoveDown($'.$this->getSingularName().', '.$this->asPhp($params).') ?]', $params) ?>
 
 <?php else: ?>
-    <?php $link = sprintf('<li class="sf_admin_action_%s">%s</li>', $params['class_suffix'], $this->getLinkToAction($name, $params, true); ?>
-    <?php echo $this->addCredentialCondition($link, $params) ?>
+    <?php $link = sprintf('<li class="sf_admin_action_%s">%s</li>', $params['class_suffix'], $this->getLinkToAction($name, $params, true)); ?>
+    <?php echo $this->addCredentialCondition($link, $params); ?>
 <?php endif; ?>
 <?php if (isset($params['condition'])): ?>
   [?php endif; ?]
