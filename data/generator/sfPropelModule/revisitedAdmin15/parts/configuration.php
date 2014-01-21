@@ -14,8 +14,21 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 
 <?php include dirname(__FILE__).'/fieldsConfiguration.php' ?>
 
-<?php include dirname(__FILE__).'/slotActionsConfiguration.php' ?>
+<?php if (isset($this->config['exportation']['enabled']) && $this->config['exportation']['enabled']): ?>
+  <?php include dirname(__FILE__).'/exporterConfiguration.php' ?>
+  <?php include dirname(__FILE__).'/exporterPaginationConfiguration.php' ?>
+<?php else: ?>
+  <?php unset($this->config['exportation']) ?>
+<?php endif ?>
 
+  public function isExportationEnabled()
+  { $plugins = sfContext::getInstance()->getConfiguration()->getPlugins();
+    
+    return <?php echo (isset($this->config['exportation']['enabled']) && $this->config['exportation']['enabled']? 'true' : 'false') ?> && in_array('sfPhpExcelPlugin',$plugins);
+<?php unset($this->config['exportation']['enabled']) ?> 
+  }
+
+<?php include dirname(__FILE__).'/slotActionsConfiguration.php' ?>
   /**
    * Gets the form class name.
    *
