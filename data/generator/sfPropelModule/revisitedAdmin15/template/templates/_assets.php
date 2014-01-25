@@ -2,4 +2,6 @@
 [?php use_stylesheet('<?php echo $this->params['css'] ?>', 'first') ?]
 <?php elseif(!isset($this->params['css'])): ?>
 [?php use_stylesheet('<?php echo sfConfig::get('sf_admin_module_web_dir').'/css/theme.css' ?>', 'first') ?]
+[?php use_stylesheet('/acPropelExtendedGeneratorPlugin/css/exportation.css', 'first') ?]
 <?php endif; ?>
+[?php use_javascript('/acPropelExtendedGeneratorPlugin/js/exportation.js', 'last') ?]
