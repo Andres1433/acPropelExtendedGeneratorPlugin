@@ -3,6 +3,12 @@
 require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName) ?>GeneratorConfiguration.class.php');
 require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName) ?>GeneratorHelper.class.php');
 
+require_once(dirname(__FILE__).'/../lib/exporterHelper.php');
+require_once(dirname(__FILE__).'/../lib/exporterHelperUser.php');
+require_once(dirname(__FILE__).'/../lib/exporterXls.php');
+require_once(dirname(__FILE__).'/../lib/exporterCsv.php');
+require_once(dirname(__FILE__).'/../lib/exporterForm.php');
+
 /**
  * <?php echo $this->getModuleName() ?> actions.
  *
@@ -62,4 +68,11 @@ abstract class <?php echo $this->getGeneratedModuleName() ?>Actions extends <?ph
 
 <?php include dirname(__FILE__).'/../../parts/moveDownAction.php' ?>
 <?php endif ?>
+
+
+<?php if ($this->configuration->isExportationEnabled()): ?>
+  <?php include dirname(__FILE__).'/../../parts/exporterAction.php' ?>
+  <?php include dirname(__FILE__).'/../../parts/exporterPaginationAction.php' ?>
+<?php endif ?>
+
 }

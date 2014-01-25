@@ -2,6 +2,10 @@
 [?php include_partial('<?php echo $this->getModuleName() ?>/assets') ?]
 
 <div id="sf_admin_container">
+  <?php if ($this->configuration->isExportationEnabled()): ?>
+    [?php include_partial('exportation', array('configuration' => $configuration)) ?]
+  <?php endif ?>
+
   <h1>[?php echo <?php echo $this->getI18NString('list.title') ?> ?]</h1>
 
   [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
@@ -20,15 +24,18 @@
 
   <ul class="sf_admin_header_actions">
   <?php if ($actions = $this->configuration->getValue('list.actions')): ?>
-  <?php if (isset($actions['_new']['condition'])): ?>
-  [?php if (sfContext::getInstance()->getUser()-><?php echo $actions['_new']['condition'] ?>()): ?]
+  <?php if ((isset($actions['_new'])) && (isset($actions['_new']['condition']))): ?>
+    [?php if (sfContext::getInstance()->getUser()-><?php echo $actions['_new']['condition'] ?>()): ?]
   <?php endif; ?>
-  <?php echo $this->addCredentialCondition('[?php echo $helper->linkToNew('.$this->asPhp($actions['_new']).') ?]', $actions['_new']) ?>
-  <?php if (isset($actions['_new']['condition'])): ?>
+  <?php if ((isset($actions['_new']))): ?>
+    <?php echo $this->addCredentialCondition('[?php echo $helper->linkToNew('.$this->asPhp($actions['_new']).') ?]', $actions['_new']) ?>
+  <?php endif; ?>
+  <?php if ((isset($actions['_new'])) && (isset($actions['_new']['condition']))): ?>
   [?php endif; ?]
   <?php endif; ?>
   <?php endif; ?>
   </ul>
+
   
 <?php if ($this->configuration->getValue('list.batch_actions')): ?>
     <form action="[?php echo url_for('<?php echo $this->getUrlForAction('collection') ?>', array('action' => 'batch')) ?]" method="post">
