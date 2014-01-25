@@ -98,4 +98,17 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
 
     return $condition;
   }
+
+  public function getPeerMethod()
+  {
+    return '<?php echo isset($this->config['list']['peer_method']) ? $this->config['list']['peer_method'] : 'doSelect' ?>';
+<?php unset($this->config['list']['peer_method']) ?>
+  }
+
+  public function getPeerCountMethod()
+  {
+    return '<?php echo isset($this->config['list']['peer_count_method']) ? $this->config['list']['peer_count_method'] : 'doCount' ?>';
+<?php unset($this->config['list']['peer_count_method']) ?>
+  }
+
 }

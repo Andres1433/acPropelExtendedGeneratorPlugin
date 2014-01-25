@@ -14,59 +14,73 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     return 'list' == $action ? '<?php echo $this->params['route_prefix'] ?>' : '<?php echo $this->params['route_prefix'] ?>_'.$action;
   }
 
-  public function linkToMoveUp($object, $params)
+  public function linkToEdit($object, $params)
   {
-    if ($object->isFirst())
+    $obj = $object instanceOf sfOutputEscaperObjectDecorator ? $object->getRawValue() : $object;
+    if (isset($params['show_when']))
     {
-      return '<li class="sf_admin_action_moveup disabled"><span>'.__($params['label'], array(), 'sf_admin').'</span></li>';
+      $show_when = $params['show_when'];
     }
 
-    if (empty($params['action']))
+    if (method_exists($obj, 'canEdit') && !$obj->canEdit())
     {
-      $params['action'] = 'moveUp';
+      return '<li class="sf_admin_action_edit_disabled">'.__($params['label'], array(), 'sf_admin').'</li>';
     }
 
-    return '<li class="sf_admin_action_moveup">'.link_to(__($params['label'], array(), 'sf_admin'), '<?php echo $this->params['moduleName'] ?>/'.$params['action'].'?<?php echo $this->getPrimaryKeyUrlParams('$object', true); ?>).'</li>';
+    if (isset($show_when))
+    {
+      return (call_user_func(array($obj, $show_when))) ? parent::linkToEdit($object, $params) : '';
+    }
+    else
+    {
+      return parent::linkToEdit($object, $params);
+    }
   }
 
-  public function linkToMoveDown($object, $params)
+  public function linkToDelete($object, $params)
   {
-    if ($object->isLast())
+    $obj = $object instanceOf sfOutputEscaperObjectDecorator ? $object->getRawValue() : $object;
+    if (isset($params['show_when']))
     {
-      return '<li class="sf_admin_action_movedown disabled"><span>'.__($params['label'], array(), 'sf_admin').'</span></li>';
+      $show_when = $params['show_when'];
     }
 
-    if (empty($params['action']))
+    if (method_exists($obj, 'canDelete') && !$obj->canDelete())
     {
-      $params['action'] = 'moveDown';
+      return '<li class="sf_admin_action_delete_disabled">'.__($params['label'], array(), 'sf_admin').'</li>';
     }
 
-    return '<li class="sf_admin_action_movedown">'.link_to(__($params['label'], array(), 'sf_admin'), '<?php echo $this->params['moduleName'] ?>/'.$params['action'].'?<?php echo $this->getPrimaryKeyUrlParams('$object', true); ?>).'</li>';
-  }
-
-  public function linkToNew($params)
-  {
-    return '<li class="sf_admin_action_new btn medium primary">'.link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('new')).'</li>';
-  }
-
-  public function linkToList($params)
-  {
-    return '<li class="sf_admin_action_list btn medium default icon-left icon-arrow-left">'.link_to(__($params['label'], array(), 'sf_admin'), '@'.$this->getUrlForAction('list')).'</li>';
-  }
-
-  public function linkToSave($object, $params)
-  {
-    return '<li class="sf_admin_action_save btn medium primary"><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" /></li>';
-  }
-
-  public function linkToSaveAndAdd($object, $params)
-  {
-    if (!$object->isNew())
+    if (isset($show_when))
     {
-      return '';
+      return (call_user_func(array($obj, $show_when))) ? parent::linkToDelete($object, $params) : '';
+    }
+    else
+    {
+      return parent::linkToDelete($object, $params);
+    }
+  }
+
+  public function linkToShow($object, $params)
+  {
+    $obj = $object instanceOf sfOutputEscaperObjectDecorator ? $object->getRawValue() : $object;
+    if (isset($params['show_when']))
+    {
+      $show_when = $params['show_when'];
     }
 
-    return '<li class="sf_admin_action_save_and_add btn medium secondary"><input type="submit" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" /></li>';
+    if (method_exists($obj, 'canShow') && !$obj->canShow())
+    {
+      return '<li class="sf_admin_action_show_disabled">'.__($params['label'], array(), 'sf_admin').'</li>';
+    }
+
+    if (isset($show_when))
+    {
+      return (call_user_func(array($obj, $show_when))) ? '<li class="sf_admin_action_show">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('show'), $object).'</li>' : '';
+    }
+    else
+    {
+      return '<li class="sf_admin_action_show">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('show'), $object).'</li>';
+    }
   }
 
   public function linkToExport($params)
@@ -97,7 +111,6 @@ jQuery('#sf_admin_exportation_form').load('".url_for(sfContext::getInstance()->g
 )").'</li>';
   }
 
-
   public function linkToUserExport($params)
   {
     $params['action'] = isset($params['action'])? $params['action'] : 'newUserExportation';
@@ -125,4 +138,5 @@ jQuery('#sf_admin_exportation_form').load('".url_for(sfContext::getInstance()->g
   }
 )").'</li>';
   }
+
 }

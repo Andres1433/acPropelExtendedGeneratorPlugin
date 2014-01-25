@@ -24,5 +24,5 @@
 
   protected function buildExportationCriteria()
   {
-    return $this->buildCriteria();
+    return $this->buildQuery();
   }

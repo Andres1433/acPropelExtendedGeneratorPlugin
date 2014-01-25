@@ -3,6 +3,12 @@
 require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName) ?>GeneratorConfiguration.class.php');
 require_once(dirname(__FILE__).'/../lib/Base<?php echo ucfirst($this->moduleName) ?>GeneratorHelper.class.php');
 
+require_once(dirname(__FILE__).'/../lib/exporterHelper.php');
+require_once(dirname(__FILE__).'/../lib/exporterHelperUser.php');
+require_once(dirname(__FILE__).'/../lib/exporterXls.php');
+require_once(dirname(__FILE__).'/../lib/exporterCsv.php');
+require_once(dirname(__FILE__).'/../lib/exporterForm.php');
+
 /**
  * <?php echo $this->getModuleName() ?> actions.
  *
