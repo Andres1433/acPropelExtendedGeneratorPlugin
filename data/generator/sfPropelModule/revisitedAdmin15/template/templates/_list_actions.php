@@ -7,7 +7,10 @@
 <?php echo $this->addCredentialCondition('[?php echo $helper->linkToExport('.$this->asPhp($params).') ?]', $params)."\n" ?>
 <?php elseif ('_user_export' == $name): ?>
 <?php echo $this->addCredentialCondition('[?php echo $configuration->isExportationEnabled()?$helper->linkToUserExport('.$this->asPhp($params).'):"" ?]', $params)."\n" ?>
-
+<?php elseif ('_new' != $name): ?>
+  <li class="sf_admin_action_<?php echo $params['class_suffix'] ?>">
+    <?php echo $this->addCredentialCondition($this->getLinkToAction($name, $params, false), $params) ?>
+  </li>
 <?php endif; ?>
 <?php if (isset($params['condition'])): ?>
 [?php endif; ?]
