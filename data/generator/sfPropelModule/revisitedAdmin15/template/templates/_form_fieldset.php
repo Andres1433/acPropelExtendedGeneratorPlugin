@@ -6,6 +6,9 @@
 
   [?php foreach ($fields as $name => $field): ?]
     [?php if ((isset($form[$name]) && $form[$name]->isHidden()) || (!isset($form[$name]) && $field->isReal())) continue ?]
+    [?php if ($validator = $form->getValidator($name)) {
+      $required = $validator->hasOption('required') && $validator->getOption('required') ? ' required' : '';
+    } ?]
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_field', array(
       'name'       => $name,
       'attributes' => $field->getConfig('attributes', array()),
@@ -13,7 +16,7 @@
       'help'       => $field->getConfig('help'),
       'form'       => $form,
       'field'      => $field,
-      'class'      => 'row field sf_admin_field_'.strtolower($field->getType()).' sf_admin_form_field_'.$name,
+      'class'      => 'row field sf_admin_field_'.strtolower($field->getType()).' sf_admin_form_field_'.$name.$required,
     )) ?]
   [?php endforeach; ?]
 </fieldset>
