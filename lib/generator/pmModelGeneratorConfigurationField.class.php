@@ -14,4 +14,3 @@ class pmModelGeneratorConfigurationField extends sfModelGeneratorConfigurationFi
     return isset($this->config['column_name'])?true: parent::isReal();
   }
 }
-?>
