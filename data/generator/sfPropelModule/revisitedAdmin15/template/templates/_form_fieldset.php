@@ -6,6 +6,7 @@
 
   [?php foreach ($fields as $name => $field): ?]
     [?php if ((isset($form[$name]) && $form[$name]->isHidden()) || (!isset($form[$name]) && $field->isReal())) continue ?]
+    [?php $required = ''; ?]
     [?php if ($validator = $form->getValidator($name)) {
       $required = $validator->hasOption('required') && $validator->getOption('required') ? ' required' : '';
     } ?]
