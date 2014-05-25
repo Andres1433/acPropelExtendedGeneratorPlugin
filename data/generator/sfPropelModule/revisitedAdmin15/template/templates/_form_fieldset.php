@@ -7,9 +7,10 @@
   [?php foreach ($fields as $name => $field): ?]
     [?php if ((isset($form[$name]) && $form[$name]->isHidden()) || (!isset($form[$name]) && $field->isReal())) continue ?]
     [?php $required = ''; ?]
-    [?php if ($validator = $form->getValidator($name)) {
+    [?php try {
+      $validator = $form->getValidator($name);
       $required = $validator->hasOption('required') && $validator->getOption('required') ? ' required' : '';
-    } ?]
+    } catch(Exception $e) {} ?]
     [?php include_partial('<?php echo $this->getModuleName() ?>/form_field', array(
       'name'       => $name,
       'attributes' => $field->getConfig('attributes', array()),
